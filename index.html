@@ -1,1529 +1,1246 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-  <title>韩亦韶的个人站</title>
-  
-  
-  <meta name="description" content="生而为人，怎么都成。">
-  
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
 
-  
+<meta name="generator" content="Hexo 3.9.0" />
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <!-- meta -->
-  
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <!-- link -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.10.1/css/all.min.css">
-  
+<title>韩亦韶的个人站</title>
 
-  
 
-  
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.8/css/style.css">
-  
+    <meta name="description" content="生而为人，怎么都成。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="韩亦韶的个人站">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="韩亦韶的个人站">
+<meta property="og:description" content="生而为人，怎么都成。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="韩亦韶的个人站">
+<meta name="twitter:description" content="生而为人，怎么都成。">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
-  <script>
-    function setLoadingBarProgress(num) {
-      document.getElementById('loading-bar').style.width=num+"%";
-    }
-  </script>
 
-  
-  
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
 </head>
-
-<body>
-  
-  
-  <div class="cover-wrapper">
-    <cover class='cover  half'>
-      
-        
-  <h1 class='title'>Material X</h1>
-
-
-  <div class="m_search">
-    <form name="searchform" class="form u-search-form">
-      <input type="text" class="input u-search-input" placeholder="" />
-      <i class="icon fas fa-search fa-fw"></i>
-    </form>
-  </div>
-
-<div class='menu navgation'>
-  <ul class='h-list'>
-    
-      
-        <li>
-          <a class="nav home" href="/"
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
             
+                <img src="/images/logo.svg" alt="韩亦韶的个人站" height="28">
             
-            id="home">
-            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
-          </a>
-        </li>
-      
-        <li>
-          <a class="nav home" href="/projects/"
-            
-            
-            id="projects">
-            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
-          </a>
-        </li>
-      
-        <li>
-          <a class="nav home" href="/friends/"
-            
-              rel="nofollow"
-            
-            
-            id="friends">
-            <i class='fas fa-link fa-fw'></i>&nbsp;友链
-          </a>
-        </li>
-      
-        <li>
-          <a class="nav home" href="/about/"
-            
-              rel="nofollow"
-            
-            
-            id="about">
-            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于
-          </a>
-        </li>
-      
-    
-  </ul>
-</div>
-
-      
-    </cover>
-    <header class="l_header pure">
-  <div id="loading-bar-wrapper">
-    <div id="loading-bar" class="pure"></div>
-  </div>
-
-	<div class='wrapper'>
-		<div class="nav-main container container--flex">
-      <a class="logo flat-box" href='/' >
-        
-          韩亦韶的个人站
-        
-      </a>
-			<div class='menu navgation'>
-				<ul class='h-list'>
-          
-  					
-  						<li>
-								<a class="nav flat-box" href="/"
-                  
-                  
-                  id="home">
-									<i class='fas fa-grin fa-fw'></i>&nbsp;示例
-								</a>
-							</li>
-      			
-  						<li>
-								<a class="nav flat-box" href="/blog/categories/"
-                  
-                    rel="nofollow"
-                  
-                  
-                  id="blogcategories">
-									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
-								</a>
-							</li>
-      			
-  						<li>
-								<a class="nav flat-box" href="/blog/tags/"
-                  
-                    rel="nofollow"
-                  
-                  
-                  id="blogtags">
-									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
-								</a>
-							</li>
-      			
-  						<li>
-								<a class="nav flat-box" href="/blog/archives/"
-                  
-                    rel="nofollow"
-                  
-                  
-                  id="blogarchives">
-									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
-								</a>
-							</li>
-      			
-      		
-				</ul>
-			</div>
-
-			
-				<div class="m_search">
-					<form name="searchform" class="form u-search-form">
-						<input type="text" class="input u-search-input" placeholder="搜索" />
-						<i class="icon fas fa-search fa-fw"></i>
-					</form>
-				</div>
-			
-			<ul class='switcher h-list'>
-				
-					<li class='s-search'><a class="fas fa-search fa-fw" href='javascript:void(0)'></a></li>
-				
-				<li class='s-menu'><a class="fas fa-bars fa-fw" href='javascript:void(0)'></a></li>
-			</ul>
-		</div>
-
-		<div class='nav-sub container container--flex'>
-			<a class="logo flat-box"></a>
-			<ul class='switcher h-list'>
-				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" href='javascript:void(0)'></a></li>
-        
-          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" href='javascript:void(0)'></a></li>
-        
-			</ul>
-		</div>
-	</div>
-</header>
-	<aside class="menu-phone">
-    <header>
-		<nav class="menu navgation">
-      <ul>
-        
-          
-            <li>
-							<a class="nav flat-box" href="/"
-                
-                
-                id="home">
-								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
-							</a>
-            </li>
-          
-            <li>
-							<a class="nav flat-box" href="/blog/archives/"
-                
-                  rel="nofollow"
-                
-                
-                id="blogarchives">
-								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
-							</a>
-            </li>
-          
-            <li>
-							<a class="nav flat-box" href="/projects/"
-                
-                
-                id="projects">
-								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
-							</a>
-            </li>
-          
-            <li>
-							<a class="nav flat-box" href="/friends/"
-                
-                  rel="nofollow"
-                
-                
-                id="friends">
-								<i class='fas fa-link fa-fw'></i>&nbsp;我的友链
-							</a>
-            </li>
-          
-            <li>
-							<a class="nav flat-box" href="https://xaoxuu.com/wiki/material-x/"
-                
-                  rel="nofollow"
-                
-                
-                id="https:xaoxuu.comwikimaterial-x">
-								<i class='fas fa-book fa-fw'></i>&nbsp;主题文档
-							</a>
-            </li>
-          
-            <li>
-							<a class="nav flat-box" href="/about/"
-                
-                  rel="nofollow"
-                
-                
-                id="about">
-								<i class='fas fa-info-circle fa-fw'></i>&nbsp;关于小站
-							</a>
-            </li>
-          
-       
-      </ul>
-		</nav>
-    </header>
-	</aside>
-<script>setLoadingBarProgress(40);</script>
-
-  </div>
-
-
-  <div class="l_body">
-    <div class='body-wrapper'>
-      <div class='l_main'>
-  
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/08/26/幼儿园施工图设计实际项目踩坑总结/">
-      幼儿园施工图设计实际项目踩坑总结
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://yoursite.com" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>韩亦韶的个人站</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-08-26</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div class="readmore">
-          <a href="/2019/08/26/幼儿园施工图设计实际项目踩坑总结/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/08/23/Hexo搭建及远端部署/">
-      Windows系统下用Hexo框架搭建个人博客及远端部署到GitHub
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://yoursite.com" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>韩亦韶的个人站</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-08-23</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div class="readmore">
-          <a href="/2019/08/23/Hexo搭建及远端部署/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/08/20/《托儿所、幼儿园建筑设计规范》注意事项笔记（二）/">
-      《托儿所、幼儿园建筑设计规范》注意事项笔记（二）
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://yoursite.com" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>韩亦韶的个人站</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-08-20</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div class="readmore">
-          <a href="/2019/08/20/《托儿所、幼儿园建筑设计规范》注意事项笔记（二）/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/08/19/《托儿所、幼儿园建筑设计规范》看书笔记/">
-      《托儿所、幼儿园建筑设计规范》注意事项笔记（一）
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://yoursite.com" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>韩亦韶的个人站</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-08-19</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div class="readmore">
-          <a href="/2019/08/19/《托儿所、幼儿园建筑设计规范》看书笔记/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/08/19/When-I-Found-I-Had-Grown-up/">
-      When I Found I Had Grown up
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://yoursite.com" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>韩亦韶的个人站</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-08-19</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div class="readmore">
-          <a href="/2019/08/19/When-I-Found-I-Had-Grown-up/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/08/19/建筑节能设计工作流/">
-      建筑节能设计工作流
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://yoursite.com" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>韩亦韶的个人站</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-08-19</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div class="readmore">
-          <a href="/2019/08/19/建筑节能设计工作流/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/08/14/nofanotian/">
-      nofanotian
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://yoursite.com" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>韩亦韶的个人站</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-08-14</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div class="readmore">
-          <a href="/2019/08/14/nofanotian/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/08/14/hello-world/">
-      Hello World
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    <a href="http://yoursite.com" rel="nofollow">
-      
-        <i class="fas fa-user" aria-hidden="true"></i>
-      
-      <p>韩亦韶的个人站</p>
-    </a>
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019-08-14</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-        <div class="readmore">
-          <a href="/2019/08/14/hello-world/" class="flat-box">
-            <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-    
-  </section>
-</article>
-
-          </div>
-        
-      
-    
-  </section>
-  
-    
-    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
-    
-    
-
-  
-
-
-</div>
-<aside class='l_side'>
-  
-    
-    
-      
-        
-          
-          
-            <section class='widget author'>
-  <div class='content pure'>
-    
-      <div class='avatar'>
-        <img class='avatar' src='https://cdn.jsdelivr.net/gh/xaoxuu/assets@master/avatar/avatar.png'/>
-      </div>
-    
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
             </a>
-          
-        
-          
-            <a href="mailto:me@xaoxuu.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://github.com/xaoxuu"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/user/home?id=63035382"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
-
-          
-        
-      
-        
-          
-          
+        </div>
+        <div class="navbar-menu">
             
-
-          
-        
-      
-        
-          
-          
-            <section class='widget grid'>
-  
-<header class='pure'>
-  <div><i class="fas fa-map-signs fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;站内导航</div>
-  
-</header>
-
-  <div class='content pure'>
-    <ul class="grid navgation">
-      
-        <li><a class="flat-box" title="/" href="/"
-          
-          
-          id="home">
-          
-            <i class="fas fa-clock fa-fw" aria-hidden="true"></i>
-          
-          近期文章
-        </a></li>
-      
-        <li><a class="flat-box" title="/blog/archives/" href="/blog/archives/"
-          
-            rel="nofollow"
-          
-          
-          id="blogarchives">
-          
-            <i class="fas fa-archive fa-fw" aria-hidden="true"></i>
-          
-          文章归档
-        </a></li>
-      
-        <li><a class="flat-box" title="/projects/" href="/projects/"
-          
-          
-          id="projects">
-          
-            <i class="fas fa-code-branch fa-fw" aria-hidden="true"></i>
-          
-          开源项目
-        </a></li>
-      
-        <li><a class="flat-box" title="/friends/" href="/friends/"
-          
-            rel="nofollow"
-          
-          
-          id="friends">
-          
-            <i class="fas fa-link fa-fw" aria-hidden="true"></i>
-          
-          我的友链
-        </a></li>
-      
-        <li><a class="flat-box" title="https://xaoxuu.com/wiki/material-x/" href="https://xaoxuu.com/wiki/material-x/"
-          
-            rel="nofollow"
-          
-          
-          id="https:xaoxuu.comwikimaterial-x">
-          
-            <i class="fas fa-book fa-fw" aria-hidden="true"></i>
-          
-          主题文档
-        </a></li>
-      
-        <li><a class="flat-box" title="/about/" href="/about/"
-          
-            rel="nofollow"
-          
-          
-          id="about">
-          
-            <i class="fas fa-info-circle fa-fw" aria-hidden="true"></i>
-          
-          关于小站
-        </a></li>
-      
-    </ul>
-  </div>
-</section>
-
-          
-        
-      
-        
-          
-          
+            <div class="navbar-start">
+                
+                <a class="navbar-item is-active"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
             
-
-          
-        
-      
-        
-          
-          
-            
-
-          
-        
-      
-        
-          
-          
-            
-
-
-  <section class='widget music'>
-    
-<header class='pure'>
-  <div><i class="fas fa-compact-disc fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;最近在听</div>
-  
-    <a class="rightBtn"
-    
-      rel="external nofollow noopener noreferrer"
-    
-    
-      target="_blank"
-    
-    href="https://music.163.com/#/user/home?id=63035382"
-    title="https://music.163.com/#/user/home?id=63035382">
-    <i class="far fa-heart fa-fw"></i></a>
-  
-</header>
-
-    <div class='content pure'>
-      
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.css">
-  <div class="aplayer"
-    data-theme="#1BCDFC"
-    
-    
-    data-mode="circulation"
-    data-server="netease"
-    data-type="playlist"
-    data-id="2615636388"
-    data-volume="0.7">
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
-
-
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
     </div>
-  </section>
-
-
-          
-        
-      
+</nav>
     
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-26T07:16:36.000Z">2019-08-26</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 443 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/26/幼儿园施工图设计实际项目踩坑总结/">幼儿园施工图设计实际项目踩坑总结</a>
+            
+        </h1>
+        <div class="content">
+            <p>&lt; 我以前觉得，用钢琴弹出8位GBA游戏比如魂斗罗、超级玛丽和马戏团的背景音乐很酷。</p>
+<h2 id="保健观察室"><a href="#保健观察室" class="headerlink" title="保健观察室"></a>保健观察室</h2><ul>
+<li>对于保健观察室最小使用面积的要求是和幼儿园的规模相关的，小型、中型和大型幼儿园中的保健观察室的最小使用面积的要求分别是12 m<sup>2</sup>、12 m<sup>2</sup>和15 m<sup>2</sup>。</li>
+<li>保健观察室设置应符合下列规定;</li>
+</ul>
+<ol>
+<li>应设有一张幼儿床的空间；</li>
+<li>应与幼儿生活用房有适当的距离并应与幼儿活动路线分开；</li>
+<li>宜设单独出入口；</li>
+<li>应设给排水设置；</li>
+<li>应设独立的厕所，厕所内应设幼儿专用蹲位和洗手盆。</li>
+</ol>
+<h2 id="室内空调柜机、挂机和外机"><a href="#室内空调柜机、挂机和外机" class="headerlink" title="室内空调柜机、挂机和外机"></a>室内空调柜机、挂机和外机</h2><ul>
+<li>活动室和寝室合并之后的面积要求不小于120 m<sup>2</sup>，需要的空调柜机至少要两台，而且还是比较贵的，性能更好的那种。幼儿园、托儿所的相关规范有关空调室外机安装位置的要求：应安装在室外地面或通道地面2.0m以上，且幼儿无法接触的位置。我还没搞懂的是一个房间是必须要设柜机还是可以设挂机是有什么讲究还是可以随便设置。</li>
+</ul>
+<h2 id="排烟窗的设置"><a href="#排烟窗的设置" class="headerlink" title="排烟窗的设置"></a>排烟窗的设置</h2><ul>
+<li>排烟窗的开启方式分为手动和自动。</li>
+</ul>
+<h2 id="涉及到电气专业的问题"><a href="#涉及到电气专业的问题" class="headerlink" title="涉及到电气专业的问题"></a>涉及到电气专业的问题</h2><h3 id="防火门与消控室"><a href="#防火门与消控室" class="headerlink" title="防火门与消控室"></a>防火门与消控室</h3><ul>
+<li>楼梯间的防火门是需要监控装置的，这些监控装置就被放置在<br>七下<sup><strong>TM</strong></sup> 七下<del>TM</del> 七下<del>TM</del> 七下<em>TM</em> 七下<sub>TM</sub> 七下^TM^ 七下==TM==</li>
+</ul>
 
-  
-</aside>
-
-<footer id="footer" class="clearfix">
-  
-  
-    <div class="social-wrapper">
-      
+        </div>
         
-          <a href="/atom.xml"
-            class="social fas fa-rss flat-btn"
-            target="_blank"
-            rel="external nofollow noopener noreferrer">
-          </a>
         
-      
         
-          <a href="mailto:me@xaoxuu.com"
-            class="social fas fa-envelope flat-btn"
-            target="_blank"
-            rel="external nofollow noopener noreferrer">
-          </a>
-        
-      
-        
-          <a href="https://github.com/xaoxuu"
-            class="social fab fa-github flat-btn"
-            target="_blank"
-            rel="external nofollow noopener noreferrer">
-          </a>
-        
-      
-        
-          <a href="https://music.163.com/#/user/home?id=63035382"
-            class="social fas fa-headphones-alt flat-btn"
-            target="_blank"
-            rel="external nofollow noopener noreferrer">
-          </a>
-        
-      
     </div>
-  
-  <br>
-  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
-  <div>
-    本站使用
-    <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a>
-    作为主题
+
+
+
+
+
+
+
+
+    <div class="card">
     
-      ，
-      总访问量为
-      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
-      次
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-23T07:20:27.000Z">2019-08-23</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9 分钟 读完 (大约 1315 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/23/Hexo搭建及远端部署/">Windows系统下用Hexo框架搭建个人博客及远端部署到GitHub</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="1、安装Git-for-Windows"><a href="#1、安装Git-for-Windows" class="headerlink" title="1、安装Git for Windows"></a>1、安装Git for Windows</h2><p>下载页面<a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">https://github.com/waylau/git-for-win</a>//记得在安装过程中选中add to path加入到path环境变量中去。</p>
+<h2 id="2、安装Nodejs"><a href="#2、安装Nodejs" class="headerlink" title="2、安装Nodejs"></a>2、安装Nodejs</h2><p>下载页面：<a href="https://nodejs.org/en/" target="_blank" rel="noopener">https://nodejs.org/en/</a><br><em>以上两步执行完之后在命令行输入 node –version 和 npm –version 来验证是否已经成功安装</em></p>
+<h2 id="3、安装cnpm"><a href="#3、安装cnpm" class="headerlink" title="3、安装cnpm"></a>3、安装cnpm</h2><p><em>（这是一个淘宝的源，可以让后面下载Hexo的时候速度飞升。）</em><br>命令行输入</p>
+<blockquote>
+<p>npm install -g cnpm -registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a> </p>
+</blockquote>
+<p>之后按回车（<em>-g的意思是全局安装，安装完了，不管在哪一个路径下面都可以调用相关的命令。<em>）/</em>同样可以在命令行输入cnpm –version来验证是否安装成功</em>/</p>
+<h2 id="4、安装Hexo。"><a href="#4、安装Hexo。" class="headerlink" title="4、安装Hexo。"></a>4、安装Hexo。</h2><p>命令行输入 </p>
+<blockquote>
+<p>cnpm install -g hexo-cli </p>
+</blockquote>
+<p>之后按回车。<br>同样，安装完成之后，执行 </p>
+<blockquote>
+<p>hexo –version</p>
+</blockquote>
+<p>来验证是否安装成功。</p>
+<h2 id="5、切换到非系统盘"><a href="#5、切换到非系统盘" class="headerlink" title="5、切换到非系统盘"></a>5、切换到非系统盘</h2><p>命令行输入</p>
+<blockquote>
+<p>D:</p>
+</blockquote>
+<p>（这一步可省略，我只是单纯的不想我的C盘多出一些乱七八糟的文件占了空间。）</p>
+<h2 id="6、在当前目录下创建新的文件夹"><a href="#6、在当前目录下创建新的文件夹" class="headerlink" title="6、在当前目录下创建新的文件夹"></a>6、在当前目录下创建新的文件夹</h2><p>在命令行中输入 </p>
+<blockquote>
+<p>mkdir blog </p>
+</blockquote>
+<ul>
+<li>新建一个名为blog的文件夹。</li>
+</ul>
+<h2 id="7、在blog目录下初始化Hexo"><a href="#7、在blog目录下初始化Hexo" class="headerlink" title="7、在blog目录下初始化Hexo"></a>7、在blog目录下初始化Hexo</h2><p>命令行 cd blog 进到文件夹的目录下，再执行 hexo init 初始化Hexo。</p>
+<ul>
+<li>这一步执行完可能要花点时间等待一下，并且你会发现，新建的blog文件夹中多了文件夹和文件。并且，忽略命令行出现的warning。</li>
+</ul>
+<h2 id="8、本地预览博客"><a href="#8、本地预览博客" class="headerlink" title="8、本地预览博客"></a>8、本地预览博客</h2><p>命令行执行 hexo s或者 hexo server 之后终端当中会显示在localhost:4000 可以访问博客。打开网页浏览器，在网址栏输入localhost:4000来进行博客的本地预览。在终端中按 ctrl+C 就会断开，并且Hexo还会向你问好。Farewell!</p>
+<h2 id="9、创建新博文"><a href="#9、创建新博文" class="headerlink" title="9、创建新博文"></a>9、创建新博文</h2><p>在初始化博客之后，里面会有篇名为“helloworld”的博文。要新建博文，在命令行执行 hexo n “我的第一篇博客文章”之后，blog目录下会生成一个名为“我的第一篇博客文章”的md（markdown）格式的文件。这个文件可以通过notepad++或者是微软自带的记事本（英文名应该就叫notepad）来进行编辑。注意，要用markdown的语法来编辑内容，markdown的语法很简单，网上教程很多，多学多练，很快就会熟练。在此，我就不再赘述了。（写完之后记得保存）<br>保存完了之后还要记得执行hexo g命令，它会更新博客的配置文件，这样才会生成与你新建的文章相关的文件。</p>
+<hr>
+<p>完成以上的步骤之后，你已经学会了如何创建一个个人的静态博客，如果没有什么其他的要求的话，那么，这些就已经足够你在本地自娱自乐了。<br>不过，你也可以将之前建成的博客部署到远端。就可以通过网页来浏览了。<br>除了需要一个建成的博客之外，你还需要一个github的账号。</p>
+<ul>
+<li>1、在你的GitHub中新建一个库（New repository），将其命名为example.github.io，保存之后备用。这时，https:后面的输入栏中会有一个生成的链接。</li>
+<li>2、命令行执行 cnpm install –save hexo-deployer-git（安装远程部署博客的插件）不用在意命令行中显示的warnning。图形桌面打开blog文件夹，用文本编辑器打开里面的名为“_config.yml”的文件，打开文件之后，scroll鼠标到文件的末尾写有deployment的地方，在type:后面填上git，再另起一行，写上repo:再加上步骤中gihub上生成的仓库的链接。当然，你也再另起一行，写上branch:master。（代码及文件将会储存在该仓库的主菜单下，此步可省略，因为默认的储存路径就是主菜单。）保存文件。</li>
+<li>3、配置部署到远端的文件之后，在命令行执行hexo d进行远端部署。如果这是你第一次远程部署或者你换了新的电脑或重装了系统的话，那么命令行会出现提示“please tell me who you are.”还会伴随着两条示例的代码。按照示例的代码填写自己的邮箱和GitHub的昵称,再次执行hexo d 命令，会弹出一个图形界面的窗口，要你输入你的GitHub的昵称和密码，输入完毕之后呢，稍等片刻，在网页浏览器的地址栏中输入example.github.io即可远程访问你的博客了！</li>
+</ul>
+<hr>
+<p>看完B站Up CodeSheep视频教程课后练习笔记。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
     
-    。
-  </div>
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-20T07:43:52.000Z">2019-08-20</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 分钟 读完 (大约 200 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/20/《托儿所、幼儿园建筑设计规范》注意事项笔记（二）/">《托儿所、幼儿园建筑设计规范》注意事项笔记（二）</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="4-建筑设计"><a href="#4-建筑设计" class="headerlink" title="4 建筑设计"></a>4 建筑设计</h1><h2 id="幼儿园建筑由幼儿生活用房、服务管理用房、供应用房"><a href="#幼儿园建筑由幼儿生活用房、服务管理用房、供应用房" class="headerlink" title="幼儿园建筑由幼儿生活用房、服务管理用房、供应用房"></a>幼儿园建筑由幼儿生活用房、服务管理用房、供应用房</h2><p><strong>托儿所、幼儿园中的幼儿生活用房不应设置在地下室或半地下室，且不应布置在四层及以上；托儿所部分应布置在一层</strong></p>
+<h3 id="托儿所、幼儿园建筑窗的设计应符合下列规定："><a href="#托儿所、幼儿园建筑窗的设计应符合下列规定：" class="headerlink" title="托儿所、幼儿园建筑窗的设计应符合下列规定："></a>托儿所、幼儿园建筑窗的设计应符合下列规定：</h3><ol>
+<li>活动室、多功能活动室的窗台面距地面高度不宜大于0.6m；</li>
+<li>当窗台面距楼地面高度低于0.9m时，应采取防护措施，防护高度应由楼地面起计算，不应低于0.90m；</li>
+<li>窗距离楼地面的高度小于或等于1.80m的部分，不应设内悬窗和内平开窗扇；</li>
+<li></li>
+</ol>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-19T09:18:35.000Z">2019-08-19</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分钟 读完 (大约 647 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/19/《托儿所、幼儿园建筑设计规范》看书笔记/">《托儿所、幼儿园建筑设计规范》注意事项笔记（一）</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="3-基底和平面"><a href="#3-基底和平面" class="headerlink" title="3.基底和平面"></a>3.基底和平面</h1><ul>
+<li>不应与大型公共娱乐场所、商场、批发市场等人流密集的场所毗邻</li>
+<li>幼儿园、托儿所的服务半径宜为300m~500m<h2 id="三个班及以上的托儿所、幼儿园建筑应独立设置。两个班及以下时，可与居住建筑合建，但应符合下列规定："><a href="#三个班及以上的托儿所、幼儿园建筑应独立设置。两个班及以下时，可与居住建筑合建，但应符合下列规定：" class="headerlink" title="三个班及以上的托儿所、幼儿园建筑应独立设置。两个班及以下时，可与居住建筑合建，但应符合下列规定："></a>三个班及以上的托儿所、幼儿园建筑应独立设置。两个班及以下时，可与居住建筑合建，但应符合下列规定：</h2></li>
+</ul>
+<ol>
+<li>幼儿园生活用房应设在居住建筑的底层；</li>
+<li>应设独立出入口，并应与其他建筑部分采用隔离措施；</li>
+<li>出入口处应设置人员安全集散和车辆停靠的空间；</li>
+<li>应设独立的室外活动场地，场地周围应采取隔离措施；</li>
+<li>室外活动场地范围内应采取防止物体坠落措施。</li>
+</ol>
+<h2 id="托儿所、幼儿园应设室外活动场地，并应符合下列规定："><a href="#托儿所、幼儿园应设室外活动场地，并应符合下列规定：" class="headerlink" title="托儿所、幼儿园应设室外活动场地，并应符合下列规定："></a>托儿所、幼儿园应设<em>室外活动场地</em>，并应符合下列规定：</h2><ol>
+<li>每班<em>应</em>设专用室外活动场地，面积<em>不宜</em>小于60m<sup>2</sup>，各班活动场地之间<em>宜</em>采取分隔措施；</li>
+<li><em>应</em>设全员共用活动场地，人均面积不应小于2m<sup>2</sup>；</li>
+<li>地面<em>应</em>平整、防滑、无障碍、无尖锐突出物，并宜采用软质地坪；</li>
+<li>共用活动场地<em>应</em>设置游戏器具、沙坑、30m跑道、洗手池等，<em>宜</em>设戏水池，储水深度<em>不应</em>超过0.30m；游戏器具下面及周围<em>应</em>设软质铺装；</li>
+<li>室外活动场地应有1/2以上的面积在标准建筑日照阴影线之外。</li>
+</ol>
+<ul>
+<li>幼儿园使用的楼梯，当楼梯井净宽度大于0.11m时，必须采取防止幼儿攀滑措施。楼梯栏杆应采取不易攀爬的构造，当采用垂直杆件做栏杆时，其杆件净距不应大于0.11m。</li>
+<li>幼儿经常通行和安全疏散的走道不应设有台阶，当有高差时，应设置防滑坡道，其坡度不应大于1:12。疏散走道的墙面距地面2m以下不应设有壁柱、管道、消防水箱、灭火器、广告牌等突出物。</li>
+<li>建筑室外出入口应设雨蓬，雨蓬挑出长度宜超过首级踏步0.50m以上。</li>
+<li>出入口台阶高度超过0.30m，并侧面临空时，应设置防护措施，防护措施净高不应低于1.05m。</li>
+<li><del>托儿所、幼儿园建筑防火设计应符合现行国家标准</del></li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-19T08:49:49.000Z">2019-08-19</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 36 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/19/When-I-Found-I-Had-Grown-up/">When I Found I Had Grown up</a>
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>当他开口就某个问题咨询我的意见的时候，我发现我长大了，而他也已年过半百。</p>
+</blockquote>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-19T06:48:12.000Z">2019-08-19</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 48 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/19/建筑节能设计工作流/">建筑节能设计工作流</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><ul>
+<li>PKPM节能软件</li>
+<li>一些基础知识</li>
+<li>墙体基线连续的天正CAD画的建筑平面图<h1 id="具体操作步骤"><a href="#具体操作步骤" class="headerlink" title="具体操作步骤"></a>具体操作步骤</h1><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2></li>
+</ul>
+<p><em>时间</em><br><strong>各类语言</strong></p>
+<ul>
+<li>lost</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-14T02:43:11.000Z">2019-08-14</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 19 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/14/nofanotian/">nofanotian</a>
+            
+        </h1>
+        <div class="content">
+            <p>啦啦啦啦啦啦，没有办法，我就是这么强大,6666</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-08-14T02:35:21.580Z">2019-08-14</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    1 分钟 读完 (大约 121 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2019/08/14/hello-world/">Hello World</a>
+            
+        </h1>
+        <div class="content">
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                        <figure class="image is-128x128 has-mb-6">
+                            <img class="is-rounded" src="/images/avatar.png" alt="Dino.Tail">
+                        </figure>
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Dino.Tail
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Keep Fit!
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Chengdu,Sichuan,China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        8
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https:weibo.com/qiantengao" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/lichengdong1117">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https:weibo.com/qiantengao">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https:weibo.com/qiantengao">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https:weibo.com/qiantengao">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/08/26/幼儿园施工图设计实际项目踩坑总结/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="幼儿园施工图设计实际项目踩坑总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-26T07:16:36.000Z">2019-08-26</time></div>
+                    <a href="/2019/08/26/幼儿园施工图设计实际项目踩坑总结/" class="title has-link-black-ter is-size-6 has-text-weight-normal">幼儿园施工图设计实际项目踩坑总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/23/Hexo搭建及远端部署/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Windows系统下用Hexo框架搭建个人博客及远端部署到GitHub">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T07:20:27.000Z">2019-08-23</time></div>
+                    <a href="/2019/08/23/Hexo搭建及远端部署/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Windows系统下用Hexo框架搭建个人博客及远端部署到GitHub</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/20/《托儿所、幼儿园建筑设计规范》注意事项笔记（二）/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="《托儿所、幼儿园建筑设计规范》注意事项笔记（二）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-20T07:43:52.000Z">2019-08-20</time></div>
+                    <a href="/2019/08/20/《托儿所、幼儿园建筑设计规范》注意事项笔记（二）/" class="title has-link-black-ter is-size-6 has-text-weight-normal">《托儿所、幼儿园建筑设计规范》注意事项笔记（二）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/19/《托儿所、幼儿园建筑设计规范》看书笔记/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="《托儿所、幼儿园建筑设计规范》注意事项笔记（一）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-19T09:18:35.000Z">2019-08-19</time></div>
+                    <a href="/2019/08/19/《托儿所、幼儿园建筑设计规范》看书笔记/" class="title has-link-black-ter is-size-6 has-text-weight-normal">《托儿所、幼儿园建筑设计规范》注意事项笔记（一）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/19/When-I-Found-I-Had-Grown-up/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="When I Found I Had Grown up">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-19T08:49:49.000Z">2019-08-19</time></div>
+                    <a href="/2019/08/19/When-I-Found-I-Had-Grown-up/" class="title has-link-black-ter is-size-6 has-text-weight-normal">When I Found I Had Grown up</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/08/26/幼儿园施工图设计实际项目踩坑总结/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="幼儿园施工图设计实际项目踩坑总结">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-26T07:16:36.000Z">2019-08-26</time></div>
+                    <a href="/2019/08/26/幼儿园施工图设计实际项目踩坑总结/" class="title has-link-black-ter is-size-6 has-text-weight-normal">幼儿园施工图设计实际项目踩坑总结</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/23/Hexo搭建及远端部署/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Windows系统下用Hexo框架搭建个人博客及远端部署到GitHub">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-23T07:20:27.000Z">2019-08-23</time></div>
+                    <a href="/2019/08/23/Hexo搭建及远端部署/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Windows系统下用Hexo框架搭建个人博客及远端部署到GitHub</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/20/《托儿所、幼儿园建筑设计规范》注意事项笔记（二）/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="《托儿所、幼儿园建筑设计规范》注意事项笔记（二）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-20T07:43:52.000Z">2019-08-20</time></div>
+                    <a href="/2019/08/20/《托儿所、幼儿园建筑设计规范》注意事项笔记（二）/" class="title has-link-black-ter is-size-6 has-text-weight-normal">《托儿所、幼儿园建筑设计规范》注意事项笔记（二）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/19/《托儿所、幼儿园建筑设计规范》看书笔记/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="《托儿所、幼儿园建筑设计规范》注意事项笔记（一）">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-19T09:18:35.000Z">2019-08-19</time></div>
+                    <a href="/2019/08/19/《托儿所、幼儿园建筑设计规范》看书笔记/" class="title has-link-black-ter is-size-6 has-text-weight-normal">《托儿所、幼儿园建筑设计规范》注意事项笔记（一）</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/19/When-I-Found-I-Had-Grown-up/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="When I Found I Had Grown up">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-19T08:49:49.000Z">2019-08-19</time></div>
+                    <a href="/2019/08/19/When-I-Found-I-Had-Grown-up/" class="title has-link-black-ter is-size-6 has-text-weight-normal">When I Found I Had Grown up</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="韩亦韶的个人站" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 韩亦韶的个人站&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
 </footer>
-<script>setLoadingBarProgress(80);</script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
 
-
-      <script>setLoadingBarProgress(60);</script>
-    </div>
-    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-
-  <script>
-    var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
-    var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
-    var ALGOLIA_API_KEY = "";
-    var ALGOLIA_APP_ID = "";
-    var ALGOLIA_INDEX_NAME = "";
-    var AZURE_SERVICE_NAME = "";
-    var AZURE_INDEX_NAME = "";
-    var AZURE_QUERY_KEY = "";
-    var BAIDU_API_ID = "";
-    var SEARCH_SERVICE = "hexo" || "hexo";
-    var ROOT = "/"||"/";
-    if(!ROOT.endsWith('/'))ROOT += '/';
-  </script>
-
-<script src="//instant.page/1.2.2" type="module" integrity="sha384-2xV8M5griQmzyiY3CDqh1dn4z3llDVqZDqzjzcY+jCBCk/a5fXJmuZ/40JJAPeoU"></script>
-
-
-  <script async src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
-  <script type="text/javascript">
-    $(function() {
-      const $reveal = $('.reveal');
-      if ($reveal.length === 0) return;
-      const sr = ScrollReveal({ distance: 0 });
-      sr.reveal('.reveal');
-    });
-  </script>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
-  <script type="text/javascript">
-    $(function() {
-      Waves.attach('.flat-btn', ['waves-button']);
-      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
-      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
-      Waves.attach('.flat-box', ['waves-block']);
-      Waves.attach('.float-box', ['waves-block', 'waves-float']);
-      Waves.attach('.waves-image');
-      Waves.init();
-    });
-  </script>
-
-
-  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
-
-
-
-
-  
-  
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
-    <script type="text/javascript">
-      $(function(){
-        if ('.cover') {
-          $('.cover').backstretch(
-          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
-          {
-            duration: "6000",
-            fade: "2500"
-          });
-        } else {
-          $.backstretch(
-          ["https://img.vim-cn.com/29/91197b04c13f512f734a76d4ac422d89dbe229.jpg"],
-          {
-            duration: "6000",
-            fade: "2500"
-          });
-        }
-      });
-    </script>
-  
-
-
-
-
-
-
-
-
-
-
-
-  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.8/js/app.js"></script>
-
-
-  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-material-x@19.8/js/search.js"></script>
-
-
-
-
-<!-- 复制 -->
-<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 <script>
-  let COPY_SUCCESS = "复制成功";
-  let COPY_FAILURE = "复制失败";
-  /*页面载入完成后，创建复制按钮*/
-  !function (e, t, a) {
-    /* code */
-    var initCopyCode = function(){
-      var copyHtml = '';
-      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
-      copyHtml += '</button>';
-      $(".highlight .code pre").before(copyHtml);
-      var clipboard = new ClipboardJS('.btn-copy', {
-        target: function(trigger) {
-          return trigger.nextElementSibling;
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
         }
-      });
-
-      clipboard.on('success', function(e) {
-        //您可以加入成功提示
-        console.info('Action:', e.action);
-        console.info('Text:', e.text);
-        console.info('Trigger:', e.trigger);
-        success_prompt(COPY_SUCCESS);
-        e.clearSelection();
-      });
-      clipboard.on('error', function(e) {
-        //您可以加入失败提示
-        console.error('Action:', e.action);
-        console.error('Trigger:', e.trigger);
-        fail_prompt(COPY_FAILURE);
-      });
     }
-    initCopyCode();
-
-  }(window, document);
-
-  /**
-   * 弹出式提示框，默认1.5秒自动消失
-   * @param message 提示信息
-   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
-   * @param time 消失时间
-   */
-  var prompt = function (message, style, time)
-  {
-      style = (style === undefined) ? 'alert-success' : style;
-      time = (time === undefined) ? 1500 : time*1000;
-      $('<div>')
-          .appendTo('body')
-          .addClass('alert ' + style)
-          .html(message)
-          .show()
-          .delay(time)
-          .fadeOut();
-  };
-
-  // 成功提示
-  var success_prompt = function(message, time)
-  {
-      prompt(message, 'alert-success', time);
-  };
-
-  // 失败提示
-  var fail_prompt = function(message, time)
-  {
-      prompt(message, 'alert-danger', time);
-  };
-
-  // 提醒
-  var warning_prompt = function(message, time)
-  {
-      prompt(message, 'alert-warning', time);
-  };
-
-  // 信息提示
-  var info_prompt = function(message, time)
-  {
-      prompt(message, 'alert-info', time);
-  };
-
+};
 </script>
 
 
-<!-- fancybox -->
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
 <script>
-  let LAZY_LOAD_IMAGE = "";
-  $(".article-entry").find("fancybox").find("img").each(function () {
-      var element = document.createElement("a");
-      $(element).attr("data-fancybox", "gallery");
-      $(element).attr("href", $(this).attr("src"));
-      /* 图片采用懒加载处理时,
-       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
-       * 那么此处将原本的属性名src替换为对应属性名data-original,
-       * 修改如下
-       */
-       if (LAZY_LOAD_IMAGE) {
-         $(element).attr("href", $(this).attr("data-original"));
-       }
-      $(this).wrap(element);
-  });
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
 </script>
 
 
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
 
 
+    
+    
 
-  <script>setLoadingBarProgress(100);</script>
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
 </body>
 </html>
