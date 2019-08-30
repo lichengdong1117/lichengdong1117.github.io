@@ -374,7 +374,10 @@
 <blockquote>
 <p>npm install -g cnpm -registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a> </p>
 </blockquote>
-<p>之后按回车（<em>-g的意思是全局安装，安装完了，不管在哪一个路径下面都可以调用相关的命令。<em>）/</em>同样可以在命令行输入cnpm –version来验证是否安装成功</em>/</p>
+<p>之后按回车（<em>-g的意思是全局安装，安装完了，不管在哪一个路径下面都可以调用相关的命令。</em>）/*同样可以在命令行输入</p>
+<blockquote>
+<p>cnpm –version来验证是否安装成功*/</p>
+</blockquote>
 <h2 id="4、安装Hexo。"><a href="#4、安装Hexo。" class="headerlink" title="4、安装Hexo。"></a>4、安装Hexo。</h2><p>命令行输入 </p>
 <blockquote>
 <p>cnpm install -g hexo-cli </p>
@@ -396,7 +399,7 @@
 <ul>
 <li>新建一个名为blog的文件夹。</li>
 </ul>
-<h2 id="7、在blog目录下初始化Hexo"><a href="#7、在blog目录下初始化Hexo" class="headerlink" title="7、在blog目录下初始化Hexo"></a>7、在blog目录下初始化Hexo</h2><p>命令行 </p>
+<h2 id="7、在blog目录下初始化Hexo"><a href="#7、在blog目录下初始化Hexo" class="headerlink" title="7、在blog目录下初始化Hexo"></a>7、在blog目录下初始化Hexo</h2><p>在命令行中输入 </p>
 <blockquote>
 <p>cd blog</p>
 </blockquote>
@@ -406,19 +409,63 @@
 </blockquote>
 <p> 初始化Hexo。</p>
 <ul>
-<li>这一步执行完可能要花点时间等待一下，并且你会发现，新建的blog文件夹中多了文件夹和文件。并且，忽略命令行出现的==warning==。</li>
+<li>这一步执行完可能要花点时间等待一下，并且你会发现，新建的blog文件夹中多了文件夹和文件。并且，忽略命令行出现的warning。</li>
 </ul>
-<h2 id="8、本地预览博客"><a href="#8、本地预览博客" class="headerlink" title="8、本地预览博客"></a>8、本地预览博客</h2><p>命令行执行 hexo s或者 hexo server 之后终端当中会显示在localhost:4000 可以访问博客。打开网页浏览器，在网址栏输入localhost:4000来进行博客的本地预览。在终端中按 ctrl+C 就会断开，并且Hexo还会向你问好。Farewell!</p>
-<h2 id="9、创建新博文"><a href="#9、创建新博文" class="headerlink" title="9、创建新博文"></a>9、创建新博文</h2><p>在初始化博客之后，里面会有篇名为==Helloworld==的博文。要新建博文，在命令行执行 hexo n “我的第一篇博客文章”之后，blog目录下会生成一个名为“我的第一篇博客文章”的md（markdown）格式的文件。这个文件可以通过notepad++或者是微软自带的记事本（英文名应该就叫notepad）来进行编辑。注意，要用markdown的语法来编辑内容，markdown的语法很简单，网上教程很多，多学多练，很快就会熟练。在此，我就不再赘述了。（写完之后记得保存）<br>保存完了之后还要记得执行hexo g命令，它会更新博客的配置文件，这样才会生成与你新建的文章相关的文件。</p>
+<h2 id="8、本地预览博客"><a href="#8、本地预览博客" class="headerlink" title="8、本地预览博客"></a>8、本地预览博客</h2><p>命令行执行</p>
+<blockquote>
+<p>hexo s</p>
+</blockquote>
+<p>或者 </p>
+<blockquote>
+<p>hexo server<br>之后终端当中会显示在localhost:4000 可以访问博客。打开网页浏览器，在网址栏输入localhost:4000来进行博客的本地预览。在终端中按 ctrl+C ,提示<br>终止批处理操作吗&lt;Y/N&gt;？</p>
+</blockquote>
+<p>输入</p>
+<blockquote>
+<p>y</p>
+</blockquote>
+<p>之后回车</p>
+<ul>
+<li>这样就关闭了在本地进行的博客预览。</li>
+</ul>
+<h2 id="9、创建新博文"><a href="#9、创建新博文" class="headerlink" title="9、创建新博文"></a>9、创建新博文</h2><p>在初始化博客之后，里面会有篇名为<strong>Helloworld</strong>的博文。要新建博文，在命令行执行</p>
+<blockquote>
+<p>hexo n “我的第一篇博客文章”</p>
+</blockquote>
+<p>之后，blog目录下会生成一个名为“我的第一篇博客文章”的md（markdown）格式的文件。这个文件可以通过notepad++或者是微软自带的记事本（英文名应该就叫notepad）来进行编辑。注意，要用markdown的语法来编辑内容，markdown的语法很简单，网上教程很多，多学多练，很快就会熟练。在此，我就不再赘述了。（写完之后记得保存）<br>保存完了之后还要记得执行</p>
+<blockquote>
+<p>hexo g</p>
+</blockquote>
+<p>命令，它会更新博客的配置文件，这样才会生成与你新建的文章相关的文件。</p>
 <hr>
 <p>完成以上的步骤之后，你已经学会了如何创建一个个人的静态博客，如果没有什么其他的要求的话，那么，这些就已经足够你在本地自娱自乐了。<br>不过，你也可以将之前建成的博客部署到远端。就可以通过网页来浏览了。<br>除了需要一个建成的博客之外，你还需要一个github的账号。</p>
-<ul>
-<li>1、在你的GitHub中新建一个库（New repository），将其命名为example.github.io，保存之后备用。这时，https:后面的输入栏中会有一个生成的链接。</li>
-<li>2、命令行执行 cnpm install –save hexo-deployer-git（安装远程部署博客的插件）不用在意命令行中显示的warnning。图形桌面打开blog文件夹，用文本编辑器打开里面的名为“_config.yml”的文件，打开文件之后，scroll鼠标到文件的末尾写有deployment的地方，在type:后面填上git，再另起一行，写上repo:再加上步骤中gihub上生成的仓库的链接。当然，你也再另起一行，写上branch:master。（代码及文件将会储存在该仓库的主菜单下，此步可省略，因为默认的储存路径就是主菜单。）保存文件。</li>
-<li>3、配置部署到远端的文件之后，在命令行执行hexo d进行远端部署。如果这是你第一次远程部署或者你换了新的电脑或重装了系统的话，那么命令行会出现提示“please tell me who you are.”还会伴随着两条示例的代码。按照示例的代码填写自己的邮箱和GitHub的昵称,再次执行hexo d 命令，会弹出一个图形界面的窗口，要你输入你的GitHub的昵称和密码，输入完毕之后呢，稍等片刻，在网页浏览器的地址栏中输入example.github.io即可远程访问你的博客了！</li>
-</ul>
+<ol>
+<li>在你的GitHub中新建一个库（New repository），将其命名为example.github.io，保存之后备用。这时，https:后面的输入栏中会有一个生成的链接。</li>
+</ol>
+<p><em>example所指代的就是你的github账号名称</em></p>
+<ol start="2">
+<li>命令行执行 <blockquote>
+<p>cnpm install –save hexo-deployer-git</p>
+</blockquote>
+</li>
+</ol>
+<p>-安装远程部署博客的插件-不用在意命令行中显示的warnning。图形桌面打开blog文件夹，用文本编辑器打开里面的名为_config.yml的文件，打开文件之后，滑动鼠标到文件的末尾写有#deployment的地方，在type:后面填上git，再另起一行，写上repo:再加上步骤中gihub上生成的仓库的链接。当然，你也再另起一行，写上branch:master。（代码及文件将会储存在该仓库的主菜单下，此步可省略，因为默认的储存路径就是主菜单。）如下所示：</p>
+<blockquote>
+<p>deply:<br>    type: git<br>    repo: <a href="https://github.com/example/example.github.io.git" target="_blank" rel="noopener">https://github.com/example/example.github.io.git</a><br>    branch: master</p>
+</blockquote>
+<p><em>example同样指代上文中的你的GitHub的账号</em><br>保存文件。</p>
+<ol start="3">
+<li>配置部署到远端的文件之后，在命令行执行<blockquote>
+<p>hexo d</p>
+</blockquote>
+</li>
+</ol>
+<p>进行远端部署。如果这是你第一次远程部署或者你换了新的电脑或重装了系统的话，那么命令行会出现提示</p>
+<blockquote>
+<p>please tell me who you are</p>
+</blockquote>
+<p>还会伴随着两条示例的代码。按照示例的代码填写自己的邮箱和GitHub的昵称,再次执行hexo d 命令，会弹出一个图形界面的窗口，要你输入你的GitHub的昵称和密码，输入完毕之后呢，稍等片刻，在网页浏览器的地址栏中输入example.github.io即可远程访问你的博客了！<br><em>example仍然指代上文中的你的github的账号</em></p>
 <hr>
-<p>看完B站Up CodeSheep视频教程课后练习笔记。</p>
+<p>看完B站Up主CodeSheep视频教程课后练习笔记。</p>
 
         </div>
         
@@ -430,10 +477,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-29T21:28:34+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-08-30T14:55:41+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>最后更新于 2019年8月29日</p>
+    <p>最后更新于 2019年8月30日</p>
   </a>
 </div>
 
@@ -441,6 +488,9 @@
       
         
           
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Hexo/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>Hexo</p></a></div>
+
 
         
       
@@ -742,6 +792,27 @@
           
           
             
+  <section class='widget tagcloud'>
+    
+<header class='pure'>
+  <div><i class="fas fa-fire fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;热门标签</div>
+  
+    <a class="rightBtn"
+    
+      rel="nofollow"
+    
+    
+    href="/blog/tags/"
+    title="blog/tags/">
+    <i class="fas fa-expand-arrows-alt fa-fw"></i></a>
+  
+</header>
+
+    <div class='content pure'>
+      <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a>
+    </div>
+  </section>
+
 
           
         
@@ -780,7 +851,7 @@
     data-mode="random"
     data-server="netease"
     data-type="playlist"
-    data-id="2177329931"
+    data-id="2962680196"
     data-volume="0.7">
   </div>
   <script src="https://cdn.jsdelivr.net/npm/aplayer@1.7.0/dist/APlayer.min.js"></script>
