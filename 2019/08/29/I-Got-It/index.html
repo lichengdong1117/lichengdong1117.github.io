@@ -419,6 +419,15 @@
 <hr>
 <h2 id="屋顶2-的坡和1-的坡的交线的角度到底是多少？"><a href="#屋顶2-的坡和1-的坡的交线的角度到底是多少？" class="headerlink" title="屋顶2%的坡和1%的坡的交线的角度到底是多少？"></a>屋顶2%的坡和1%的坡的交线的角度到底是多少？</h2><p>经过我SU建模之后导出平行投影下的顶视图到dxf文件再用CAD测量交线角度之后得到如下结果：<br>当从一个矩形屋面的两个相邻的女儿墙分别起1%的坡和2%的坡的时候，两个女儿墙和交线的关系是：<br>2%的坡的交线和起坡位置的女儿墙所成的角度为63°，而交线和1%的坡起坡位置女儿墙所成的角度为27°。</p>
 <hr>
+<h2 id="CAD用键盘移动图元"><a href="#CAD用键盘移动图元" class="headerlink" title="CAD用键盘移动图元"></a>CAD用键盘移动图元</h2><p><del>想要快捷键切歌，就同时按住了ctrl + alt + →，结果CAD里的图元突然先向右移动了一下。我猜想这个每次位移的距离是可以通过相关设置来修改的，只是这个功能用起来很少，就先不去深究了。</del><br><em>而且好像到了CAD2019已经没有这种移动方式了，那就算了吧。</em></p>
+<hr>
+<h2 id="提升绘图效率的法宝——活用块和图层以及底图参照"><a href="#提升绘图效率的法宝——活用块和图层以及底图参照" class="headerlink" title="提升绘图效率的法宝——活用块和图层以及底图参照"></a>提升绘图效率的法宝——活用块和图层以及底图参照</h2><ol>
+<li>底图参照。通过attach命令来附着一张要绘制的建筑施工图对应的方案的dwg文件，附着的文件会以淡显的方式显示在当前文件中，这样就可以模拟手绘隔着硫酸纸来瞄着画的操作一样，把需要绘制的图元在当前文件中绘制出来。这比直接将原方案的图打个块再粘进当前图纸的效率要搞得多，而且此方法原方案和当前图纸中的图元区分的非常清楚。并且参照基本不会是图纸文件变大。</li>
+<li>图层。有图层的软件都要会灵活使用图层，CAD也不例外。<br>将比较繁琐的图纸用清晰的图层划分开来会使绘图的时候关闭相关图层的时候更为方便，尤其当诸如立面材质填充这样在图纸中占有较大面积的图元如果全都放在一个图层的话，那么在对立面的其他图元进行处理和修改的时候就可以关闭这个图层，这样修改起来会使人感觉清爽很多。</li>
+<li>块。同样想要达到让图纸清晰的目的，还可以通过打块。如果编辑块之外的内容的图纸图元时，可以关闭无关的块，在编辑完成后，再开启隐藏的块。</li>
+</ol>
+<hr>
+<h2 id="屋面构造中的找平层、找坡层"><a href="#屋面构造中的找平层、找坡层" class="headerlink" title="屋面构造中的找平层、找坡层"></a>屋面构造中的找平层、找坡层</h2><p>找坡层，是用轻集料混凝土之类的东西来按照设计的坡度来进行找坡，直接决定建成后屋面的坡度。找坡层由于要做出来一个坡度，在屋面的各个位置的厚度是不一样的。因此，平屋面的图集做法中总是有<strong>最薄处</strong>30厚LC5.0轻集料混凝土2%找坡层的说法，其中只是对最薄处的厚度进行了限制，最厚的厚度就要按照设计的屋顶分水线、汇水线和坡度以及坡的长度来计算出来。所以在计算女儿墙的高度的时候不能单单的从结构层开始计算，要把女儿墙周围一圈的构造层次的高度全都计算一遍，取其高者，或者，至少要保证在相应的地方的女儿墙的高度要符合规范要求。至于找平层，就是在找坡层或者是其他表面不平整的构造层次（比如用轻集料混凝土做的找坡层，毕竟轻集料混凝土也是混凝土，还是很不平整的。）之上再抹一层水泥砂浆（一般是3mm厚），使其表面光滑平整，方便再往上的构造层次的施工和敷设。虽然名字是找<strong>平</strong>层，但是这个<strong>平</strong>不是<strong>水平</strong>的意思，而是<strong>平整</strong>的意思。而且在找坡层上面的找平层是必不水平的。</p>
 
         </div>
         
@@ -430,10 +439,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-11-28T16:17:08+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-12-31T15:29:58+08:00">
   <a class='notlink'>
     <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>最后更新于 2019年11月28日</p>
+    <p>最后更新于 2019年12月31日</p>
   </a>
 </div>
 
@@ -504,16 +513,16 @@
                         <span class="art-item-left">
                             <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
                             <h4>
-                                <a href="/2019/08/31/泛泛而谈心理学/" rel="prev" title="泛泛而谈心理学">
+                                <a href="/2019/09/01/建筑施工图抽立面工作流程/" rel="prev" title="建筑施工图抽立面工作流程">
                                   
-                                      泛泛而谈心理学
+                                      建筑施工图抽立面工作流程
                                   
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/心理学/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>心理学</a>
+                                    <a class="tag" href="/tags/建筑施工图/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>建筑施工图</a>
                                 </h6>
                             
                         </span>
@@ -639,7 +648,7 @@
 </header>
 
     <div class='content pure'>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#空调机位"><span class="toc-text">空调机位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#施工图编轴网思路"><span class="toc-text">施工图编轴网思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核方案和建筑图纸是否对应"><span class="toc-text">核方案和建筑图纸是否对应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《公共建筑节能设计标准》中关于建筑立面朝向的划分"><span class="toc-text">《公共建筑节能设计标准》中关于建筑立面朝向的划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构降板的相关知识"><span class="toc-text">结构降板的相关知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无障碍楼梯的设置"><span class="toc-text">无障碍楼梯的设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（提示盲道用引出标注-lt-YCBZ-gt-或者做法标注-lt-WW-gt-引出来。"><span class="toc-text">（提示盲道用引出标注&lt; YCBZ &gt;或者做法标注&lt; WW &gt;引出来。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#疏散宽度的计算（针对公建）"><span class="toc-text">疏散宽度的计算（针对公建）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#屋顶2-的坡和1-的坡的交线的角度到底是多少？"><span class="toc-text">屋顶2%的坡和1%的坡的交线的角度到底是多少？</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#空调机位"><span class="toc-text">空调机位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#施工图编轴网思路"><span class="toc-text">施工图编轴网思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#核方案和建筑图纸是否对应"><span class="toc-text">核方案和建筑图纸是否对应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#《公共建筑节能设计标准》中关于建筑立面朝向的划分"><span class="toc-text">《公共建筑节能设计标准》中关于建筑立面朝向的划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结构降板的相关知识"><span class="toc-text">结构降板的相关知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无障碍楼梯的设置"><span class="toc-text">无障碍楼梯的设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（提示盲道用引出标注-lt-YCBZ-gt-或者做法标注-lt-WW-gt-引出来。"><span class="toc-text">（提示盲道用引出标注&lt; YCBZ &gt;或者做法标注&lt; WW &gt;引出来。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#疏散宽度的计算（针对公建）"><span class="toc-text">疏散宽度的计算（针对公建）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#屋顶2-的坡和1-的坡的交线的角度到底是多少？"><span class="toc-text">屋顶2%的坡和1%的坡的交线的角度到底是多少？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CAD用键盘移动图元"><span class="toc-text">CAD用键盘移动图元</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提升绘图效率的法宝——活用块和图层以及底图参照"><span class="toc-text">提升绘图效率的法宝——活用块和图层以及底图参照</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#屋面构造中的找平层、找坡层"><span class="toc-text">屋面构造中的找平层、找坡层</span></a></li></ol>
     </div>
   </section>
 
@@ -764,7 +773,7 @@
 </header>
 
     <div class='content pure'>
-      <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/建筑施工图/" style="font-size: 24px; color: #555">建筑施工图</a> <a href="/tags/心理学/" style="font-size: 14px; color: #999">心理学</a>
+      <a href="/tags/Hexo/" style="font-size: 14px; color: #999">Hexo</a> <a href="/tags/建筑施工图/" style="font-size: 24px; color: #555">建筑施工图</a>
     </div>
   </section>
 
