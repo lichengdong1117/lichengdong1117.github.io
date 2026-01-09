@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="author" content="Ember Lee">
+
+
+
+
+
+<title>Windows系统下用Hexo框架搭建个人博客及远端部署到GitHub | Ember的备忘录</title>
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/nprogress/nprogress.css">
+
+
+
+<script src="/lib/jquery.min.js"></script>
+
+
+<script src="/lib/iconify-icon.min.js"></script>
+
+
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+  };
+</script>
+
+
+<script src="/lib/nprogress/nprogress.js"></script>
+
+<script>
+  $(document).ready(() => {
+    NProgress.configure({
+      showSpinner: false,
+    });
+    NProgress.start();
+    $("#nprogress .bar").css({
+      background: "#de7441",
+    });
+    $("#nprogress .peg").css({
+      "box-shadow": "0 0 2px #de7441, 0 0 4px #de7441",
+    });
+    $("#nprogress .spinner-icon").css({
+      "border-top-color": "#de7441",
+      "border-left-color": "#de7441",
+    });
+    setTimeout(function () {
+      NProgress.done();
+      $(".fade").removeClass("out");
+    }, 800);
+  });
+</script>
+
+<script>
+  (function () {
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+    if (setting === "dark" || (prefersDark && setting !== "light"))
+      document.documentElement.classList.toggle("dark", true);
+    let isDark = document.documentElement.classList.contains("dark");
+  })();
+
+  $(document).ready(function () {
+    // init icon
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = document.documentElement.classList.contains("dark");
+    $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
+
+    function toggleGiscusTheme() {
+      const isDark = document.documentElement.classList.contains("dark");
+      const giscusFrame = document.querySelector("iframe.giscus-frame");
+      if (giscusFrame) {
+        giscusFrame.contentWindow.postMessage(
+          {
+            giscus: {
+              setConfig: {
+                theme: isDark ? "dark" : "light",
+              },
+            },
+          },
+          "https://giscus.app"
+        );
+      }
+    }
+
+    // toggle dark mode
+    function toggleDark() {
+      let isDark = document.documentElement.classList.contains("dark");
+      const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+      isDark = !isDark;
+      document.documentElement.classList.toggle("dark", isDark);
+      $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
+      if (prefersDark === isDark) {
+        localStorage.setItem("hexo-color-scheme", "auto");
+      } else {
+        localStorage.setItem("hexo-color-scheme", isDark ? "dark" : "light");
+      }
+      toggleGiscusTheme();
+    }
+
+    // listen dark mode change
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+        if (setting === "auto") {
+          document.documentElement.classList.toggle("dark", e.matches);
+          $("#theme-icon").attr(
+            "icon",
+            e.matches ? "ri:moon-line" : "ri:sun-line"
+          );
+          toggleGiscusTheme();
+        }
+      });
+
+    $("#toggle-dark").click((event) => {
+      const isAppearanceTransition = document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (!isAppearanceTransition) {
+        toggleDark()
+        return
+      }
+      const x = event.clientX
+      const y = event.clientY
+      const endRadius = Math.hypot(
+        Math.max(x, innerWidth - x),
+        Math.max(y, innerHeight - y),
+      )
+      const transition = document.startViewTransition(async () => {
+        toggleDark()
+      })
+
+      transition.ready
+        .then(() => {
+          const isDark = document.documentElement.classList.contains("dark")
+          const clipPath = [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+          ]
+          document.documentElement.animate(
+            {
+              clipPath: isDark
+                ? [...clipPath].reverse()
+                : clipPath,
+            },
+            {
+              duration: 400,
+              easing: 'ease-out',
+              pseudoElement: isDark
+                ? '::view-transition-old(root)'
+                : '::view-transition-new(root)',
+            },
+          )
+        })
+    });
+  });
+</script>
+
+
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200 relative">
+  <header class="fixed w-full px-5 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
+  <div class="max-auto">
+    <nav class="flex items-center text-base">
+      <a href="/" class="group">
+        <h2 class="font-medium tracking-tighterp text-l p-2">
+          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo" src="/images/logo.svg" alt="Ember的备忘录" />
+          Ember的备忘录
+        </h2>
+      </a>
+      <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
+        Windows系统下用Hexo框架搭建个人博客及远端部署到GitHub
+      </div>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-3">
+        
+          <a class="hidden sm:flex" href="/archives">Posts</a>
+        
+        
+          
+            <a class="w-5 h-5 hidden sm:flex" title="Github" target="_blank" rel="noopener" href="https://github.com/xbmlz">
+              <iconify-icon width="20" icon="ri:github-line"></iconify-icon>
+            </a>
+          
+        
+        <a class="w-5 h-5 hidden sm:flex" title="Github" href="rss2.xml">
+          <iconify-icon width="20" icon="ri:rss-line"></iconify-icon>
+        </a>
+        <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
+          <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-3 ml-3 sm:hidden">
+        <span class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
+          <iconify-icon width="20" icon="carbon:menu" ></iconify-icon>
+        </span>
+        <span class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
+          <iconify-icon  width="20" icon="carbon:close" ></iconify-icon>
+        </span>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-12 bottom-0 z-10">
+  <div id="menu-content" class="relative z-20 bg-white/80 px-6 sm:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-300">
+    <ul class="nav flex flex-col sm:flex-row text-sm font-medium">
+      
+        <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/5 last:border-0 hover:text-main">
+          <a href="/archives" class="flex h-12 sm:h-auto items-center">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+  <div class="mask bg-black/20 absolute inset-0"></div>
+</div>
+
+  <main class="pt-14">
+    <!-- css -->
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.min.css">
+
+
+<link rel="stylesheet" href="/lib/tocbot/tocbot.min.css">
+
+<!-- toc -->
+
+  <!-- tocbot -->
+<nav class="post-toc toc text-sm w-48 relative top-32 right-0 opacity-70 hidden lg:block" style="position: fixed !important;"></nav>
+
+
+<section class="px-6 max-w-prose mx-auto md:px-0">
+  <!-- header -->
+  <header class="overflow-hidden pt-6 pb-6 md:pt-12">
+    <div class="pt-4 md:pt-6">
+      <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
+        Windows系统下用Hexo框架搭建个人博客及远端部署到GitHub
+      </h1>
+      <div>
+        <section class="flex items-center gap-3 text-sm">
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="carbon-calendar" ></iconify-icon>
+            <time>2026-01-09</time>
+          </span>
+          <span class="text-gray-400">·</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="ic:round-access-alarm" ></iconify-icon>
+            <span>6 min</span>
+          </span>
+          <span class="text-gray-400">·</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
+            <span>1.7k words</span>
+          </span>
+          
+        </section>
+      </div>
+    </div>
+  </header>
+  <!-- content -->
+  <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
+    <h2 id="1、安装Git-for-Windows"><a href="#1、安装Git-for-Windows" class="headerlink" title="1、安装Git for Windows"></a>1、安装Git for Windows</h2><p>下载页面<a target="_blank" rel="noopener" href="https://github.com/waylau/git-for-win">https://github.com/waylau/git-for-win</a>&#x2F;&#x2F;记得在安装过程中选中add to path加入到path环境变量中去。</p>
+<h2 id="2、安装Nodejs"><a href="#2、安装Nodejs" class="headerlink" title="2、安装Nodejs"></a>2、安装Nodejs</h2><p>下载页面：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a><br><em>以上两步执行完之后在命令行输入 node –version 和 npm –version 来验证是否已经成功安装</em></p>
+<h2 id="3、安装cnpm"><a href="#3、安装cnpm" class="headerlink" title="3、安装cnpm"></a>3、安装cnpm</h2><p><em>（这是一个淘宝的源，可以让后面下载Hexo的时候速度飞升。）</em><br>命令行输入</p>
+<blockquote>
+<p>npm install -g cnpm -registry&#x3D;<a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></p>
+</blockquote>
+<p>之后按回车（<em>-g的意思是全局安装，安装完了，不管在哪一个路径下面都可以调用相关的命令。</em>）&#x2F;*同样可以在命令行输入</p>
+<blockquote>
+<p>cnpm –version来验证是否安装成功</p>
+</blockquote>
+<h2 id="4、安装Hexo。"><a href="#4、安装Hexo。" class="headerlink" title="4、安装Hexo。"></a>4、安装Hexo。</h2><p>命令行输入 </p>
+<blockquote>
+<p>cnpm install -g hexo-cli </p>
+</blockquote>
+<p>之后按回车。<br>同样，安装完成之后，执行 </p>
+<blockquote>
+<p>hexo –version</p>
+</blockquote>
+<p>来验证是否安装成功。</p>
+<h2 id="5、切换到非系统盘"><a href="#5、切换到非系统盘" class="headerlink" title="5、切换到非系统盘"></a>5、切换到非系统盘</h2><p>命令行输入</p>
+<blockquote>
+<p>D:</p>
+</blockquote>
+<p>（这一步可省略，我只是单纯的不想我的C盘多出一些乱七八糟的文件占了空间。）</p>
+<h2 id="6、在当前目录下创建新的文件夹"><a href="#6、在当前目录下创建新的文件夹" class="headerlink" title="6、在当前目录下创建新的文件夹"></a>6、在当前目录下创建新的文件夹</h2><p>在命令行中输入 </p>
+<blockquote>
+<p>mkdir blog </p>
+</blockquote>
+<ul>
+<li>新建一个名为blog的文件夹。</li>
+</ul>
+<h2 id="7、在blog目录下初始化Hexo"><a href="#7、在blog目录下初始化Hexo" class="headerlink" title="7、在blog目录下初始化Hexo"></a>7、在blog目录下初始化Hexo</h2><p>在命令行中输入 </p>
+<blockquote>
+<p>cd blog</p>
+</blockquote>
+<p> 进到文件夹的目录下，再执行 </p>
+<blockquote>
+<p>hexo init </p>
+</blockquote>
+<p> 初始化Hexo。</p>
+<ul>
+<li>这一步执行完可能要花点时间等待一下，并且你会发现，新建的blog文件夹中多了文件夹和文件。并且，忽略命令行出现的warning。</li>
+</ul>
+<h2 id="8、本地预览博客"><a href="#8、本地预览博客" class="headerlink" title="8、本地预览博客"></a>8、本地预览博客</h2><p>命令行执行</p>
+<blockquote>
+<p>hexo s</p>
+</blockquote>
+<p>或者 </p>
+<blockquote>
+<p>hexo server </p>
+</blockquote>
+<p>之后终端当中会显示在localhost:4000 可以访问博客。打开网页浏览器，在网址栏输入localhost:4000来进行博客的本地预览。在终端中按 ctrl+C ,提示</p>
+<blockquote>
+<p>终止批处理操作吗&lt;Y&#x2F;N&gt;？</p>
+</blockquote>
+<p>输入</p>
+<blockquote>
+<p>y</p>
+</blockquote>
+<p>之后回车</p>
+<ul>
+<li>这样就关闭了在本地进行的博客预览。</li>
+</ul>
+<h2 id="9、创建新博文"><a href="#9、创建新博文" class="headerlink" title="9、创建新博文"></a>9、创建新博文</h2><p>在初始化博客之后，里面会有篇名为<strong>Helloworld</strong>的博文。要新建博文，在命令行执行</p>
+<blockquote>
+<p>hexo n “我的第一篇博客文章”</p>
+</blockquote>
+<p>之后，blog目录下会生成一个名为“我的第一篇博客文章”的md（markdown）格式的文件。这个文件可以通过notepad++或者是微软自带的记事本（英文名应该就叫notepad）来进行编辑。注意，要用markdown的语法来编辑内容，markdown的语法很简单，网上教程很多，多学多练，很快就会熟练。在此，我就不再赘述了。（写完之后记得保存）<br>保存完了之后还要记得执行</p>
+<blockquote>
+<p>hexo g</p>
+</blockquote>
+<p>命令，它会更新博客的配置文件，这样才会生成与你新建的文章相关的文件。</p>
+<hr>
+<p>完成以上的步骤之后，你已经学会了如何创建一个个人的静态博客，如果没有什么其他的要求的话，那么，这些就已经足够你在本地自娱自乐了。<br>不过，你也可以将之前建成的博客部署到远端。就可以通过网页来浏览了。<br>除了需要一个建成的博客之外，你还需要一个github的账号。</p>
+<ol>
+<li>在你的GitHub中新建一个库（New repository），将其命名为example.github.io，保存之后备用。这时，https:后面的输入栏中会有一个生成的链接。<br><em>example所指代的就是你的github账号名称</em></li>
+<li>命令行执行 <blockquote>
+<p>cnpm install –save hexo-deployer-git</p>
+</blockquote>
+</li>
+</ol>
+<p>-安装远程部署博客的插件-不用在意命令行中显示的warnning。图形桌面打开blog文件夹，用文本编辑器打开里面的名为_config.yml的文件，打开文件之后，滑动鼠标到文件的末尾写有#deployment的地方，在type:后面填上git，再另起一行，写上repo:再加上步骤中gihub上生成的仓库的链接。当然，你也再另起一行，写上branch:master。（代码及文件将会储存在该仓库的主菜单下，此步可省略，因为默认的储存路径就是主菜单。）如下所示：</p>
+<blockquote>
+<p>deply:<br>type: git<br>repo: <a target="_blank" rel="noopener" href="https://github.com/example/example.github.io.git">https://github.com/example/example.github.io.git</a><br>branch: master</p>
+</blockquote>
+<p><em>example同样指代上文中的你的GitHub的账号</em><br>保存文件。<br>3. 配置部署到远端的文件之后，在命令行执行</p>
+<blockquote>
+<p>hexo d</p>
+</blockquote>
+<p>进行远端部署。如果这是你第一次远程部署或者你换了新的电脑或重装了系统的话，那么命令行会出现提示</p>
+<blockquote>
+<p>please tell me who you are</p>
+</blockquote>
+<p>还会伴随着两条示例的代码。按照示例的代码填写自己的邮箱和GitHub的昵称,再次执行</p>
+<blockquote>
+<p>hexo d </p>
+</blockquote>
+<p>命令，会弹出一个图形界面的窗口，要你输入你的GitHub的昵称和密码，输入完毕之后呢，稍等片刻，在网页浏览器的地址栏中输入example.github.io即可远程访问你的博客了！<br><em>example仍然指代上文中的你的github的账号</em></p>
+<hr>
+<h2 id="VScode-中打开终端来部署到远端"><a href="#VScode-中打开终端来部署到远端" class="headerlink" title="VScode 中打开终端来部署到远端"></a>VScode 中打开终端来部署到远端</h2><p>关于输入GitHub账号和密码的部分，不知道是不是因为GitHub和VS同为微软旗下的产品，VScode 中打开cmd命令终端的情况下执行</p>
+<blockquote>
+<p>hexo d</p>
+</blockquote>
+<p>命令，需要输入GitHub的命令和密码的时候非常的接近于图形界面。它会直接先后出现两行代码：</p>
+<blockquote>
+<p>Username for  ‘<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a>‘ :</p>
+</blockquote>
+<p>这时候就直接在命令终端输入你的GitHub账号，然后回车；此时命令行会显示另一条提示：</p>
+<blockquote>
+<p>Password for  ‘<a target="_blank" rel="noopener" href="https://github.com/">https://github.com</a>‘ :</p>
+</blockquote>
+<h2 id="输入GitHub的密码，就完成的了Git的身份认证。就可以顺利部署到远端了。"><a href="#输入GitHub的密码，就完成的了Git的身份认证。就可以顺利部署到远端了。" class="headerlink" title="输入GitHub的密码，就完成的了Git的身份认证。就可以顺利部署到远端了。"></a>输入GitHub的密码，就完成的了Git的身份认证。就可以顺利部署到远端了。</h2><h2 id="Hexo主题设置"><a href="#Hexo主题设置" class="headerlink" title="Hexo主题设置"></a>Hexo主题设置</h2><p>除了默认的Hexo主题之外，开源社区还有许许多多各种大佬写的基于Hexo框架的主题，这里以utone主题为例来说一下设置主题的方法。</p>
+<ol>
+<li>首先，打开cmd终端，进入博客所在的文件夹<blockquote>
+<p>E:</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<p>cd blog</p>
+</blockquote>
+<p>再进入主题所在的文件夹</p>
+<blockquote>
+<p>cd themes</p>
+</blockquote>
+<p>再执行以下命令</p>
+<blockquote>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/shixiaohu2206/hexo-theme-utone.git">https://github.com/shixiaohu2206/hexo-theme-utone.git</a> utone</p>
+</blockquote>
+<p>等待克隆完成</p>
+<ol start="2">
+<li>找到<strong>blog</strong>文件夹下的**_config.yml**配置文件，用文本编辑器打开。找到如下的文字段落：<blockquote>
+<p> Extensions<br> Plugins: <a target="_blank" rel="noopener" href="https://hexo.io/plugins/">https://hexo.io/plugins/</a><br> Themes: <a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a><br> theme: landscape</p>
+</blockquote>
+</li>
+</ol>
+<p>把其中的<strong>landscape</strong>改为<strong>utone</strong>之后保存一下文件。</p>
+<ol start="3">
+<li>再更新一下。注意，这时候要再退回到blog文件夹下执行更新的命令。<br>首先，退回到blog目录下<blockquote>
+<p>cd ..&#x2F;</p>
+</blockquote>
+</li>
+</ol>
+<p>再执行更新命令</p>
+<blockquote>
+<p>hexo g</p>
+</blockquote>
+<p>更新完了之后，再执行</p>
+<blockquote>
+<p>hexo s</p>
+</blockquote>
+<h6 id="在本地预览，这样就完成了博客主题的设置了。当然，这样换了主题还不够，还有很多自定义的东西需要更改，这个下回再说。"><a href="#在本地预览，这样就完成了博客主题的设置了。当然，这样换了主题还不够，还有很多自定义的东西需要更改，这个下回再说。" class="headerlink" title="在本地预览，这样就完成了博客主题的设置了。当然，这样换了主题还不够，还有很多自定义的东西需要更改，这个下回再说。"></a>在本地预览，这样就完成了博客主题的设置了。当然，这样换了主题还不够，还有很多自定义的东西需要更改，这个下回再说。</h6><hr>
+
+  </article>
+  <!-- tag -->
+  <div class="mt-12 pt-6 border-t border-gray-200">
+    
+      
+        <span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 m-1 text-sm rounded-md transition-colors hover:bg-gray-200">
+          <a href="/tags/Hexo/">Hexo</a>
+        </span>
+      
+    
+  </div>
+  <!-- prev and next -->
+  <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
+    <div>
+      
+        <a href="/2019/08/26/%E5%B9%BC%E5%84%BF%E5%9B%AD%E6%96%BD%E5%B7%A5%E5%9B%BE%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
+          幼儿园施工图设计实际项目踩坑总结
+        </a>
+      
+    </div>
+    <div>
+      
+        <a href="/2019/08/20/%E3%80%8A%E6%89%98%E5%84%BF%E6%89%80%E3%80%81%E5%B9%BC%E5%84%BF%E5%9B%AD%E5%BB%BA%E7%AD%91%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83%E3%80%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          《托儿所、幼儿园建筑设计规范》注意事项笔记（二）
+          <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
+        </a>
+      
+    </div>
+  </div>
+  <!-- comment -->
+  <div class="article-comments mt-12">
+    
+
+  </div>
+</section>
+<!-- js inspect -->
+
+<script src="/lib/clipboard.min.js"></script>
+
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(() => {
+    const maraidConfig = {
+      theme: "default",
+      logLevel: 3,
+      flowchart: { curve: "linear" },
+      gantt: { axisFormat: "%m/%d/%Y" },
+      sequence: { actorMargin: 50 },
+    };
+    mermaid.initialize(maraidConfig);
+  });
+</script>
+
+
+
+<script src="/lib/fancybox/fancybox.umd.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+    $('.post-content').each(function(i){
+      $(this).find('img').each(function(){
+        if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
+        var alt = this.alt;
+        if (alt) $(this).after('<span class="fancybox-alt">' + alt + '</span>');
+        $(this).wrap('<a class="fancybox-img" href="' + this.src + '" data-fancybox=\"gallery\" data-caption="' + alt + '"></a>')
+      });
+      $(this).find('.fancybox').each(function(){
+        $(this).attr('rel', 'article' + i);
+      });
+    });
+
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        // options
+    })
+  })
+</script>
+
+<!-- tocbot begin -->
+
+<script src="/lib/tocbot/tocbot.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.post-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.post-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+  })
+</script>
+<!-- tocbot end -->
+
+
+  </main>
+  <footer class="flex flex-col h-40 items-center justify-center text-gray-400 text-sm">
+  <!-- busuanzi -->
+  
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Busuanzi Analytics -->
+<div class="flex items-center gap-2">
+  <span>Visitors</span>
+  <span id="busuanzi_value_site_uv"></span>
+  <span>Page Views</span>
+  <span id="busuanzi_value_site_pv"></span>
+</div>
+<!-- End Busuanzi Analytics -->
+
+
+  <!-- copyright -->
+  <div class="flex items-center gap-2">
+    <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color: inherit;">CC BY-NC-SA 4.0</a>
+    <span>© 2022</span>
+    <iconify-icon width="18" icon="emojione-monotone:maple-leaf" ></iconify-icon>
+    <a href="https://github.com/xbmlz" target="_blank" rel="noopener noreferrer">xbmlz</a>
+  </div>
+  <!-- powered by -->
+  <div class="flex items-center gap-2">
+    <span>Powered by</span>
+    <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
+    <span>&</span>
+    <a href="https://github.com/xbmlz/hexo-theme-maple" target="_blank" rel="noopener noreferrer">Maple</a>
+  </div>
+
+</footer>
+
+  <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20 rounded py-1 px-1 bg-slate-900 opacity-60 text-white cursor-pointer text-center dark:bg-slate-600">
+    <span class="flex justify-center items-center text-sm">
+      <iconify-icon width="18" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+      <span id="scrollpercent"><span>0</span> %</span>
+    </span>
+  </div>
+  
+<script src="/js/main.js"></script>
+
+
+  <script>
+    $(document).ready(function () {
+      const mapleCount = "10";
+      const speed = "0.5";
+      const mapleEl = document.getElementById("maple");
+      const maples = Array.from({ length: mapleCount }).map(() => {
+        const maple = document.createElement("div");
+        const scale = Math.random() * 0.5 + 0.5;
+        const offset = Math.random() * 2 - 1;
+        const x = Math.random() * mapleEl.clientWidth;
+        const y = -Math.random() * mapleEl.clientHeight;
+        const duration = 10 / speed;
+        const delay = -duration;
+        maple.className = "maple";
+        maple.style.width = `${24 * scale}px`;
+        maple.style.height = `${24 * scale}px`;
+        maple.style.left = `${x}px`;
+        maple.style.top = `${y}px`;
+        maple.style.setProperty("--maple-fall-offset", offset);
+        maple.style.setProperty("--maple-fall-height", `${Math.abs(y) + mapleEl.clientHeight}px`);
+        maple.style.animation = `fall ${duration}s linear infinite`;
+        maple.style.animationDelay = `${delay}s`;
+        mapleEl.appendChild(maple)
+        return maple
+      })
+    });
+  </script>
+  
+
+
+  <div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden" id="maple"></div>
+</body>
+
+</html>

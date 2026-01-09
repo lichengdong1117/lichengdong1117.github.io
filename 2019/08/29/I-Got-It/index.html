@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="author" content="Ember Lee">
+
+
+
+
+
+<title>I Got It | Ember的备忘录</title>
+
+
+
+<link rel="icon" href="/favicon.png">
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/nprogress/nprogress.css">
+
+
+
+<script src="/lib/jquery.min.js"></script>
+
+
+<script src="/lib/iconify-icon.min.js"></script>
+
+
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+  };
+</script>
+
+
+<script src="/lib/nprogress/nprogress.js"></script>
+
+<script>
+  $(document).ready(() => {
+    NProgress.configure({
+      showSpinner: false,
+    });
+    NProgress.start();
+    $("#nprogress .bar").css({
+      background: "#de7441",
+    });
+    $("#nprogress .peg").css({
+      "box-shadow": "0 0 2px #de7441, 0 0 4px #de7441",
+    });
+    $("#nprogress .spinner-icon").css({
+      "border-top-color": "#de7441",
+      "border-left-color": "#de7441",
+    });
+    setTimeout(function () {
+      NProgress.done();
+      $(".fade").removeClass("out");
+    }, 800);
+  });
+</script>
+
+<script>
+  (function () {
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+    if (setting === "dark" || (prefersDark && setting !== "light"))
+      document.documentElement.classList.toggle("dark", true);
+    let isDark = document.documentElement.classList.contains("dark");
+  })();
+
+  $(document).ready(function () {
+    // init icon
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isDark = document.documentElement.classList.contains("dark");
+    $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
+
+    function toggleGiscusTheme() {
+      const isDark = document.documentElement.classList.contains("dark");
+      const giscusFrame = document.querySelector("iframe.giscus-frame");
+      if (giscusFrame) {
+        giscusFrame.contentWindow.postMessage(
+          {
+            giscus: {
+              setConfig: {
+                theme: isDark ? "dark" : "light",
+              },
+            },
+          },
+          "https://giscus.app"
+        );
+      }
+    }
+
+    // toggle dark mode
+    function toggleDark() {
+      let isDark = document.documentElement.classList.contains("dark");
+      const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+      isDark = !isDark;
+      document.documentElement.classList.toggle("dark", isDark);
+      $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
+      if (prefersDark === isDark) {
+        localStorage.setItem("hexo-color-scheme", "auto");
+      } else {
+        localStorage.setItem("hexo-color-scheme", isDark ? "dark" : "light");
+      }
+      toggleGiscusTheme();
+    }
+
+    // listen dark mode change
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        const setting = localStorage.getItem("hexo-color-scheme") || "auto";
+        if (setting === "auto") {
+          document.documentElement.classList.toggle("dark", e.matches);
+          $("#theme-icon").attr(
+            "icon",
+            e.matches ? "ri:moon-line" : "ri:sun-line"
+          );
+          toggleGiscusTheme();
+        }
+      });
+
+    $("#toggle-dark").click((event) => {
+      const isAppearanceTransition = document.startViewTransition && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (!isAppearanceTransition) {
+        toggleDark()
+        return
+      }
+      const x = event.clientX
+      const y = event.clientY
+      const endRadius = Math.hypot(
+        Math.max(x, innerWidth - x),
+        Math.max(y, innerHeight - y),
+      )
+      const transition = document.startViewTransition(async () => {
+        toggleDark()
+      })
+
+      transition.ready
+        .then(() => {
+          const isDark = document.documentElement.classList.contains("dark")
+          const clipPath = [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`,
+          ]
+          document.documentElement.animate(
+            {
+              clipPath: isDark
+                ? [...clipPath].reverse()
+                : clipPath,
+            },
+            {
+              duration: 400,
+              easing: 'ease-out',
+              pseudoElement: isDark
+                ? '::view-transition-old(root)'
+                : '::view-transition-new(root)',
+            },
+          )
+        })
+    });
+  });
+</script>
+
+
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200 relative">
+  <header class="fixed w-full px-5 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
+  <div class="max-auto">
+    <nav class="flex items-center text-base">
+      <a href="/" class="group">
+        <h2 class="font-medium tracking-tighterp text-l p-2">
+          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo" src="/images/logo.svg" alt="Ember的备忘录" />
+          Ember的备忘录
+        </h2>
+      </a>
+      <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
+        I Got It
+      </div>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-3">
+        
+          <a class="hidden sm:flex" href="/archives">Posts</a>
+        
+        
+          
+            <a class="w-5 h-5 hidden sm:flex" title="Github" target="_blank" rel="noopener" href="https://github.com/xbmlz">
+              <iconify-icon width="20" icon="ri:github-line"></iconify-icon>
+            </a>
+          
+        
+        <a class="w-5 h-5 hidden sm:flex" title="Github" href="rss2.xml">
+          <iconify-icon width="20" icon="ri:rss-line"></iconify-icon>
+        </a>
+        <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
+          <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-3 ml-3 sm:hidden">
+        <span class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
+          <iconify-icon width="20" icon="carbon:menu" ></iconify-icon>
+        </span>
+        <span class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
+          <iconify-icon  width="20" icon="carbon:close" ></iconify-icon>
+        </span>
+      </div>
+    </nav>
+  </div>
+</header>
+<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-12 bottom-0 z-10">
+  <div id="menu-content" class="relative z-20 bg-white/80 px-6 sm:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-300">
+    <ul class="nav flex flex-col sm:flex-row text-sm font-medium">
+      
+        <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/5 last:border-0 hover:text-main">
+          <a href="/archives" class="flex h-12 sm:h-auto items-center">Posts</a>
+        </li>
+      
+    </ul>
+  </div>
+  <div class="mask bg-black/20 absolute inset-0"></div>
+</div>
+
+  <main class="pt-14">
+    <!-- css -->
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.min.css">
+
+
+<link rel="stylesheet" href="/lib/tocbot/tocbot.min.css">
+
+<!-- toc -->
+
+  <!-- tocbot -->
+<nav class="post-toc toc text-sm w-48 relative top-32 right-0 opacity-70 hidden lg:block" style="position: fixed !important;"></nav>
+
+
+<section class="px-6 max-w-prose mx-auto md:px-0">
+  <!-- header -->
+  <header class="overflow-hidden pt-6 pb-6 md:pt-12">
+    <div class="pt-4 md:pt-6">
+      <h1 id="article-title" class="text-[2rem] font-bold leading-snug mb-4 md:mb-6 md:text-[2.6rem]">
+        I Got It
+      </h1>
+      <div>
+        <section class="flex items-center gap-3 text-sm">
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="carbon-calendar" ></iconify-icon>
+            <time>2026-01-09</time>
+          </span>
+          <span class="text-gray-400">·</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="ic:round-access-alarm" ></iconify-icon>
+            <span>6 min</span>
+          </span>
+          <span class="text-gray-400">·</span>
+          <span class="flex items-center gap-1">
+            <iconify-icon width="18" icon="icon-park-outline:font-search" ></iconify-icon>
+            <span>1.9k words</span>
+          </span>
+          
+        </section>
+      </div>
+    </div>
+  </header>
+  <!-- content -->
+  <article class="post-content prose m-auto slide-enter-content dark:prose-invert">
+    <h2 id="空调机位"><a href="#空调机位" class="headerlink" title="空调机位"></a>空调机位</h2><ol>
+<li>空调外机可以放在内机的任意位置，不用保证比内机的高度低；</li>
+<li>放在屋顶上，预留的口可以通过高出屋面部分弯曲或者直管加盖来实现防止建筑建成以后加装空调之前屋面漏水的问题。</li>
+</ol>
+<hr>
+<h2 id="施工图编轴网思路"><a href="#施工图编轴网思路" class="headerlink" title="施工图编轴网思路"></a>施工图编轴网思路</h2><ul>
+<li>在编轴网之前COPY一个标准层放在旁边，删掉除了墙体及其结构之外的所有东西，开始编轴线，思路和眼界都清晰了好多。</li>
+<li>双侧标注会智能地识别短轴线，没有短的轴线的那一边会自动地不显示对应的轴号。</li>
+</ul>
+<hr>
+<h2 id="核方案和建筑图纸是否对应"><a href="#核方案和建筑图纸是否对应" class="headerlink" title="核方案和建筑图纸是否对应"></a>核方案和建筑图纸是否对应</h2><ul>
+<li>同样的思路。把除了墙和结构之外的东西全都删掉再来打成组或者块重起来对应。或者，不用做的这么极端。但是要先明确哪些东西是重要的、看出有没有改动的部分，然后删除剩下的东西再进行比对，软件不行硬件上努力。意思就是如果你不能发现万花丛中一点绿，那就把花全都去了。</li>
+</ul>
+<hr>
+<h2 id="《公共建筑节能设计标准》中关于建筑立面朝向的划分"><a href="#《公共建筑节能设计标准》中关于建筑立面朝向的划分" class="headerlink" title="《公共建筑节能设计标准》中关于建筑立面朝向的划分"></a>《公共建筑节能设计标准》中关于建筑立面朝向的划分</h2><ul>
+<li>南向的东西30度以内都算是南立面</li>
+<li>北向的东西60度以内都算是北立面</li>
+<li>剩下的西偏北30度到西偏南60度算是西立面</li>
+<li>再剩下的东偏南60度到东偏北30度以内的算是东立面</li>
+</ul>
+<hr>
+<h2 id="结构降板的相关知识"><a href="#结构降板的相关知识" class="headerlink" title="结构降板的相关知识"></a>结构降板的相关知识</h2><ol>
+<li><strong>除了降板之外，还有“降梁”</strong>。<br>降板的，结构会在板的位置标上”h-…”。在梁的尺寸下方用括号标出梁的下降或上翻，比如<blockquote>
+<p>200 x 1200<br>(+0.600)</p>
+</blockquote>
+</li>
+</ol>
+<p>的意思就是一个截面尺寸为200宽1200高的梁上翻600<br>而又比如：</p>
+<blockquote>
+<p>200 x 500<br>（-0.050）</p>
+</blockquote>
+<p>的意思就是一个截面尺寸为200宽500高的梁下降50</p>
+<ol start="2">
+<li><p>结构的图纸上的梁的上翻下降都是相对于结构标高来的。</p>
+</li>
+<li><p>建筑的标高比结构高50，这是默认建筑有50高的面层的。在考虑阳台降板或者卫生间、厨房降板的时候，计算高差的时候按一个标准来执行即可。<del>即要么按照结构标高来计算高差，要么按照建筑标高来计算高差。</del></p>
+</li>
+</ol>
+<hr>
+<h2 id="无障碍楼梯的设置"><a href="#无障碍楼梯的设置" class="headerlink" title="无障碍楼梯的设置"></a>无障碍楼梯的设置</h2><ol>
+<li>公共建筑内设置的无障碍楼梯，踏步的宽度不应小于280，高度不应大于160。室内外台阶的踏步高度不应大于150.宽度不应小于300。<br>（具体的应该设置几个无障碍楼梯需要根据建筑的类别查询《无障碍设计规范》得出答案）<br><strong>提示盲道</strong> 距楼梯踏步起点和终点250~300mm宜设提示盲道<br>（提示盲道用引出标注&lt; YCBZ &gt;或者做法标注&lt; WW &gt;引出来。</li>
+</ol>
+<hr>
+<h2 id="疏散宽度的计算（针对公建）"><a href="#疏散宽度的计算（针对公建）" class="headerlink" title="疏散宽度的计算（针对公建）"></a>疏散宽度的计算（针对公建）</h2><ol>
+<li>一层不用进行疏散宽度的计算，可以直通室外；</li>
+<li>二层及二层以上的楼层，每层都需要进行疏散宽度的计算。</li>
+<li>每百人疏散宽度的要求由建筑层数当然还有建筑的耐火等级决定，且每层都按照同一个数值进行计算。</li>
+</ol>
+<hr>
+<h2 id="屋顶2-的坡和1-的坡的交线的角度到底是多少？"><a href="#屋顶2-的坡和1-的坡的交线的角度到底是多少？" class="headerlink" title="屋顶2%的坡和1%的坡的交线的角度到底是多少？"></a>屋顶2%的坡和1%的坡的交线的角度到底是多少？</h2><p>经过我SU建模之后导出平行投影下的顶视图到dxf文件再用CAD测量交线角度之后得到如下结果：<br>当从一个矩形屋面的两个相邻的女儿墙分别起1%的坡和2%的坡的时候，两个女儿墙和交线的关系是：<br>2%的坡的交线和起坡位置的女儿墙所成的角度为63°，而交线和1%的坡起坡位置女儿墙所成的角度为27°。<br>2019.12.31我又重新操作了一遍，量出来的角度是26.57°。</p>
+<hr>
+<h2 id="CAD用键盘移动图元"><a href="#CAD用键盘移动图元" class="headerlink" title="CAD用键盘移动图元"></a>CAD用键盘移动图元</h2><p><del>想要快捷键切歌，就同时按住了ctrl + alt + →，结果CAD里的图元突然先向右移动了一下。我猜想这个每次位移的距离是可以通过相关设置来修改的，只是这个功能用起来很少，就先不去深究了。</del><br><em>而且好像到了CAD2019已经没有这种移动方式了，那就算了吧。</em></p>
+<hr>
+<h2 id="提升绘图效率的法宝——活用块和图层以及底图参照"><a href="#提升绘图效率的法宝——活用块和图层以及底图参照" class="headerlink" title="提升绘图效率的法宝——活用块和图层以及底图参照"></a>提升绘图效率的法宝——活用块和图层以及底图参照</h2><ol>
+<li>底图参照。通过attach命令来附着一张要绘制的建筑施工图对应的方案的dwg文件，附着的文件会以淡显的方式显示在当前文件中，这样就可以模拟手绘隔着硫酸纸来瞄着画的操作一样，把需要绘制的图元在当前文件中绘制出来。这比直接将原方案的图打个块再粘进当前图纸的效率要搞得多，而且此方法原方案和当前图纸中的图元区分的非常清楚。并且参照基本不会是图纸文件变大。</li>
+<li>图层。有图层的软件都要会灵活使用图层，CAD也不例外。<br>将比较繁琐的图纸用清晰的图层划分开来会使绘图的时候关闭相关图层的时候更为方便，尤其当诸如立面材质填充这样在图纸中占有较大面积的图元如果全都放在一个图层的话，那么在对立面的其他图元进行处理和修改的时候就可以关闭这个图层，这样修改起来会使人感觉清爽很多。</li>
+<li>块。同样想要达到让图纸清晰的目的，还可以通过打块。如果编辑块之外的内容的图纸图元时，可以关闭无关的块，在编辑完成后，再开启隐藏的块。</li>
+</ol>
+<hr>
+<h2 id="屋面构造中的找平层、找坡层"><a href="#屋面构造中的找平层、找坡层" class="headerlink" title="屋面构造中的找平层、找坡层"></a>屋面构造中的找平层、找坡层</h2><p>找坡层，是用轻集料混凝土之类的东西来按照设计的坡度来进行找坡，直接决定建成后屋面的坡度。找坡层由于要做出来一个坡度，在屋面的各个位置的厚度是不一样的。因此，平屋面的图集做法中总是有<strong>最薄处</strong>30厚LC5.0轻集料混凝土2%找坡层的说法，其中只是对最薄处的厚度进行了限制，最厚的厚度就要按照设计的屋顶分水线、汇水线和坡度以及坡的长度来计算出来。所以在计算女儿墙的高度的时候不能单单的从结构层开始计算，要把女儿墙周围一圈的构造层次的高度全都计算一遍，取其高者，或者，至少要保证在相应的地方的女儿墙的高度要符合规范要求。至于找平层，就是在找坡层或者是其他表面不平整的构造层次（比如用轻集料混凝土做的找坡层，毕竟轻集料混凝土也是混凝土，还是很不平整的。）之上再抹一层水泥砂浆（一般是3mm厚），使其表面光滑平整，方便再往上的构造层次的施工和敷设。虽然名字是找<strong>平</strong>层，但是这个<strong>平</strong>不是<strong>水平</strong>的意思，而是<strong>平整</strong>的意思。而且在找坡层上面的找平层是必不水平的。</p>
+
+  </article>
+  <!-- tag -->
+  <div class="mt-12 pt-6 border-t border-gray-200">
+    
+  </div>
+  <!-- prev and next -->
+  <div class="flex justify-between mt-12 pt-6 border-t border-gray-200">
+    <div>
+      
+        <a href="/2019/09/01/%E5%BB%BA%E7%AD%91%E6%96%BD%E5%B7%A5%E5%9B%BE%E6%8A%BD%E7%AB%8B%E9%9D%A2%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          <iconify-icon width="20" icon="ri:arrow-left-s-line" data-inline="false"></iconify-icon>
+          建筑施工图抽立面工作流程
+        </a>
+      
+    </div>
+    <div>
+      
+        <a href="/2019/08/26/%E5%B9%BC%E5%84%BF%E5%9B%AD%E6%96%BD%E5%B7%A5%E5%9B%BE%E8%AE%BE%E8%AE%A1%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E8%B8%A9%E5%9D%91%E6%80%BB%E7%BB%93/" class="text-sm text-gray-400 hover:text-gray-500 flex justify-center">
+          幼儿园施工图设计实际项目踩坑总结
+          <iconify-icon width="20" icon="ri:arrow-right-s-line" data-inline="false"></iconify-icon>
+        </a>
+      
+    </div>
+  </div>
+  <!-- comment -->
+  <div class="article-comments mt-12">
+    
+
+  </div>
+</section>
+<!-- js inspect -->
+
+<script src="/lib/clipboard.min.js"></script>
+
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+  $(document).ready(() => {
+    const maraidConfig = {
+      theme: "default",
+      logLevel: 3,
+      flowchart: { curve: "linear" },
+      gantt: { axisFormat: "%m/%d/%Y" },
+      sequence: { actorMargin: 50 },
+    };
+    mermaid.initialize(maraidConfig);
+  });
+</script>
+
+
+
+<script src="/lib/fancybox/fancybox.umd.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+    $('.post-content').each(function(i){
+      $(this).find('img').each(function(){
+        if ($(this).parent().hasClass('fancybox') || $(this).parent().is('a')) return;
+        var alt = this.alt;
+        if (alt) $(this).after('<span class="fancybox-alt">' + alt + '</span>');
+        $(this).wrap('<a class="fancybox-img" href="' + this.src + '" data-fancybox=\"gallery\" data-caption="' + alt + '"></a>')
+      });
+      $(this).find('.fancybox').each(function(){
+        $(this).attr('rel', 'article' + i);
+      });
+    });
+
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        // options
+    })
+  })
+</script>
+
+<!-- tocbot begin -->
+
+<script src="/lib/tocbot/tocbot.min.js"></script>
+
+<script>
+  $(document).ready(() => {
+      tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.post-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.post-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+  })
+</script>
+<!-- tocbot end -->
+
+
+  </main>
+  <footer class="flex flex-col h-40 items-center justify-center text-gray-400 text-sm">
+  <!-- busuanzi -->
+  
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- Busuanzi Analytics -->
+<div class="flex items-center gap-2">
+  <span>Visitors</span>
+  <span id="busuanzi_value_site_uv"></span>
+  <span>Page Views</span>
+  <span id="busuanzi_value_site_pv"></span>
+</div>
+<!-- End Busuanzi Analytics -->
+
+
+  <!-- copyright -->
+  <div class="flex items-center gap-2">
+    <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color: inherit;">CC BY-NC-SA 4.0</a>
+    <span>© 2022</span>
+    <iconify-icon width="18" icon="emojione-monotone:maple-leaf" ></iconify-icon>
+    <a href="https://github.com/xbmlz" target="_blank" rel="noopener noreferrer">xbmlz</a>
+  </div>
+  <!-- powered by -->
+  <div class="flex items-center gap-2">
+    <span>Powered by</span>
+    <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
+    <span>&</span>
+    <a href="https://github.com/xbmlz/hexo-theme-maple" target="_blank" rel="noopener noreferrer">Maple</a>
+  </div>
+
+</footer>
+
+  <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20 rounded py-1 px-1 bg-slate-900 opacity-60 text-white cursor-pointer text-center dark:bg-slate-600">
+    <span class="flex justify-center items-center text-sm">
+      <iconify-icon width="18" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
+      <span id="scrollpercent"><span>0</span> %</span>
+    </span>
+  </div>
+  
+<script src="/js/main.js"></script>
+
+
+  <script>
+    $(document).ready(function () {
+      const mapleCount = "10";
+      const speed = "0.5";
+      const mapleEl = document.getElementById("maple");
+      const maples = Array.from({ length: mapleCount }).map(() => {
+        const maple = document.createElement("div");
+        const scale = Math.random() * 0.5 + 0.5;
+        const offset = Math.random() * 2 - 1;
+        const x = Math.random() * mapleEl.clientWidth;
+        const y = -Math.random() * mapleEl.clientHeight;
+        const duration = 10 / speed;
+        const delay = -duration;
+        maple.className = "maple";
+        maple.style.width = `${24 * scale}px`;
+        maple.style.height = `${24 * scale}px`;
+        maple.style.left = `${x}px`;
+        maple.style.top = `${y}px`;
+        maple.style.setProperty("--maple-fall-offset", offset);
+        maple.style.setProperty("--maple-fall-height", `${Math.abs(y) + mapleEl.clientHeight}px`);
+        maple.style.animation = `fall ${duration}s linear infinite`;
+        maple.style.animationDelay = `${delay}s`;
+        mapleEl.appendChild(maple)
+        return maple
+      })
+    });
+  </script>
+  
+
+
+  <div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden" id="maple"></div>
+</body>
+
+</html>
